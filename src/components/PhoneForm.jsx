@@ -3,6 +3,12 @@ import Headers from './Headers'
 // import PhoneInput from 'react-phone-input-2'
 // import '../../public/style.css'
 // import 'react-phone-input-2/lib/semantic-ui.css'
+import ReactPhoneInput, { PhoneInputProps } from 'react-phone-input-2'
+
+// apparent solution for incompatibility of react-phone-input-2 with Vite:
+const PhoneInput = ReactPhoneInput.default
+  ? ReactPhoneInput.default
+  : ReactPhoneInput
 
 export default function PhoneForm() {
 
@@ -33,12 +39,12 @@ export default function PhoneForm() {
       <Headers />
 
       <div className="user-input">
-        {/* <PhoneInput
+        <PhoneInput
           // inputClass="plain"
           // className="form-control"
           value={phone}
           onChange={phone => setPhone(phone)}
-        /> */}
+        />
         <button className="form-control btn btn-success">Send</button>
       </div>
     </form>
